@@ -9,7 +9,7 @@ const Home = () => {
         <div style={{ backgroundColor: "#f1f5f4"}}>
             <Header></Header>
             <Houses></Houses>
-            {/* <Services></Services> */}
+            <Services></Services>
             <Footer></Footer>
         </div>
     );
