@@ -15,25 +15,14 @@ const imgA = [img1, img2, img3, img4];
 const HouseDetails = () => {
 
     let { id } = useParams();
-    const [details, setDetails] = useState(
-            {
-            _id: 1,
-            title: "Washington Avenue",
-            location: "Nasirabad H/S, Chattogram",
-            subTitle: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, odit.",
-            priceDetails: "",
-            propertyDetails: "4",
-            price: 168,
-            img: house1,
-            fake: true,
-        }
-    );
+    const [details, setDetails] = useState({});
 
-    // useEffect(() => {
-    //     fetch('https://cryptic-inlet-22709.herokuapp.com/details/' + id)
-    //     .then((res) => res.json())
-    //     .then((data) => setDetails(data));
-    // }, []);
+    useEffect(() => {
+        fetch('http://localhost:5000/house/' + id)
+        .then((res) => res.json())
+        .then((data) => setDetails(data));
+    }, []);
+    
 
     return (
         <div>
@@ -43,7 +32,8 @@ const HouseDetails = () => {
                 <div className="col-md-8 text-left pl-md-5">
                     <div className="pl-md-4">
                         <div>
-                            <img className="w-100" src={details.img} alt=""/>
+                            <img className="w-100" src={`data:image/png;base64,${details.img}`} alt="Card image cap"/>
+                            
                         </div>
                         <div className="py-3">
                             <div className="row">
@@ -80,7 +70,7 @@ const HouseDetails = () => {
                 </div>
 
                 <div className="col-md-4">
-                    <BookingForm></BookingForm>
+                    <BookingForm details={details}></BookingForm>
                 </div>
             </div>
         </div>
