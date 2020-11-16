@@ -1,15 +1,16 @@
-
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
 import Home from './components/Home/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+import MyRent from './components/DashBoard/MyRent/MyRent';
+import BookingList from './components/DashBoard/BookingList/BookingList';
+import AddHouse from './components/DashBoard/AddHouse/AddHouse';
 
 function App() {
   return (
@@ -25,6 +26,16 @@ function App() {
           </Route>
           <Route path="/about">
             <About></About>
+          </Route>
+          <Route path="/bookingList">
+            <BookingList></BookingList>
+          </Route>
+          <Route path="/addHouse">
+            <AddHouse></AddHouse>
+          </Route>
+
+          <Route path='/rent'>
+            <MyRent></MyRent>
           </Route>
           
           <Route path='*'>
