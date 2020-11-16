@@ -10,6 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
 import Home from './components/Home/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+import HouseDetails from './components/HouseDetails/HouseDetails';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About></About>
+          </Route>
+          <Route path="/details/:id">
+            <HouseDetails></HouseDetails>
           </Route>
           
           <Route path='*'>
