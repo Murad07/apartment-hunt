@@ -1,50 +1,47 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
-import SideBar from '../SideBar/SideBar';
-const options = [
-    { value: 'Pending', label: 'Pending' },
-    { value: 'On Going', label: 'On Going' },
-    { value: 'Done', label: 'Done' }
-]
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Sidebar from '../SideBar/SideBar';
+import SingleBookingList from './SingleBookingList';
+
 const BookingList = () => {
+    const [orders, setOrders] = useState([])
+
+    const userEmail = "silverboymurad@gmail.com";
+
+    useEffect(() => {
+        fetch('http://localhost:5000/bookingList/' + userEmail)
+        .then((res) => res.json())
+        .then((data) => setOrders(data));
+    }, []);
+   
+
     return (
         <div className="container row">
-            <SideBar></SideBar>
-            <div className=" mt-5 pl-4" style={{ height: '100vh', width: '80%',background: 'white' }} >
-            <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
-                    <h1>Booking List</h1>
-                    <h5 className="mr-5 mt-1">Sufi Ahmed</h5>
+            <Sidebar></Sidebar>
+            <div className="mt-5" style={{ height: '100vh', width: '80%', backgroundColor: '#f4fdfb' }} >
+                
+                <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
+                        <h1>Booking List</h1>
+                        {/* <h5 className="mr-5 mt-1">Sufi Ahmed</h5> */}
+                </div>
+            
+                <div className="tableBg p-3">
+                    <div className="row headding text-center mx-1">
+                        <div className="col-md-2 my-auto">Name</div>
+                        <div className="col-md-3 my-auto">Email ID</div>
+                        <div className="col-md-2 my-auto">Phone</div>
+                        <div className="col-md-3 my-auto">Message</div>
+                        <div className="col-md-2 my-auto">Status</div>
+                    </div>
+                    {
+                        orders.map((order, i) => (
+                            <SingleBookingList key={i} order={order}></SingleBookingList>
+                        ))
+                    }
+                </div>
             </div>
-            <Table className='mt-4'>
-                <thead class="tHead mr-2 ml-2 rounded">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email Id</th>
-                        <th>Phone Number</th>
-                        <th>Message</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                
-                <tbody className="tBody">
-                    <tr>
-                        <td>Sufi Ahmed</td>
-                        <td>ertw@gmail.com</td>
-                        <td>088765468</td>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-                        <td>
-                        <Dropdown  options={options} placeholder="Option" />
-                        </td>
-                    </tr>
-                </tbody>
-                
-        </Table>
         </div>
-        
-        </div>
-
     );
 };
 
