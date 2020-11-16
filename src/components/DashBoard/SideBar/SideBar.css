@@ -1,0 +1,11 @@
+
+.sidebar li{
+    margin-bottom: 2em;
+}
+.sidebar li:hover span{
+    color: #009444;
+    text-decoration: none;
+}
+.sidebar svg{
+    margin-right: 5px;
+}

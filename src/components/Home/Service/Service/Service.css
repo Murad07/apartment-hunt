@@ -1,0 +1,7 @@
+.cardImg {
+  height: 35%;
+  width: 35%;
+}
+.cardBg {
+  background-color: transparent !important;
+}

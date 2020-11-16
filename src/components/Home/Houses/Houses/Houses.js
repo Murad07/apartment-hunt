@@ -8,6 +8,7 @@ import house6 from '../../../../images/house6.png';
 import House from '../House/House';
 const infos = [
         {
+            _id: 1,
             title: "Washington Avenue",
             location: "Nasirabad H/S, Chattogram",
             bedroom: 3,
@@ -17,6 +18,7 @@ const infos = [
             fake: true,
         },
         {
+            _id: 2,
             title: "Family Apartment Tree",
             location: "Nasirabad H/S, Chattogram",
             bedroom: 3,
@@ -26,6 +28,7 @@ const infos = [
             fake: true,
         },
         {
+            _id: 3,
             title: "Gorgeous House",
             location: "Nasirabad H/S, Chattogram",
             bedroom: 3,
@@ -35,6 +38,7 @@ const infos = [
             fake: true,
         },
         {
+            _id: 4,
             title: "Luxury Villy",
             location: "Nasirabad H/S, Chattogram",
             bedroom: 3,
@@ -44,6 +48,7 @@ const infos = [
             fake: true,
         },
         {
+            _id: 5,
             title: "Epic Huda",
             location: "Nasirabad H/S, Chattogram",
             bedroom: 3,
@@ -53,6 +58,7 @@ const infos = [
             fake: true,
         },
         {
+            _id: 6,
             title: "Place Park",
             location: "Nasirabad H/S, Chattogram",
             bedroom: 3,
