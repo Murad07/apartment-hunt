@@ -70,13 +70,13 @@ const infos = [
     ];
 
 const Houses = () => {
-    const [houses, setHouses] = useState([])
+    const [houses, setHouses] = useState([]);
 
-    // useEffect( () => {
-    //     fetch('link-here')
-    //     .then(res => res.json())
-    //     .then(data => setServices(data))
-    // }, [])
+    useEffect( () => {
+        fetch('http://localhost:5000/houses')
+        .then(res => res.json())
+        .then(data => setHouses(data))
+    }, []);
 
     return (
         <div className="container mt-3">
@@ -85,8 +85,9 @@ const Houses = () => {
 
             <div className='row mx-3'>
                 {
-                    houses.length ? houses.map((info, i) => <House key={i} info={info}></House>) :
-                    infos.map((info, i) => <House key={i} info={info}></House>)
+                    // houses.length ? houses.map((info, i) => <House key={i} info={info}></House>) :
+                    // infos.map((info, i) => <House key={i} info={info}></House>)
+                    houses.map((info, i) => <House key={i} info={info}></House>)
                 }
             </div>
         </div>

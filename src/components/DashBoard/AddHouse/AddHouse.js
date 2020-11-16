@@ -1,71 +1,127 @@
-import React, { useContext } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { UserContext } from '../../../App';
+import React from 'react';
+import { useState } from 'react';
 import SideBar from '../SideBar/SideBar';
+import './AddHouse.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpload } from '@fortawesome/free-solid-svg-icons';
+
+
+const containerStyle = {
+    height:"100%"
+}
+
+const formContainer = {
+    position: 'absolute',
+    backgroundColor: '#f4fdfb',
+    width: '100%'
+}
+
 const AddHouse = () => {
-    const {loggedInUser} = useContext(UserContext);
-    console.log(loggedInUser);
+
+    const [info, setInfo] = useState({});
+    const [file, setFile] = useState(null);
+    
+    const handleBlur = e => {
+        const newInfo = { ...info };
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
+    }
+
+    const handleSubmit = () => {
+        const formData = new FormData()
+        console.log(info);
+        formData.append('file', file);
+        formData.append('title', info.title);
+        formData.append('price', info.price);
+        formData.append('location', info.location);
+        formData.append('bedRoom', info.bedRoom);
+        formData.append('bathRoom', info.bathRoom);
+        formData.append('email', "silverboymurad@gmail.com");
+
+        fetch('http://localhost:5000/addHouse', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
+    }
+
     return (
-        <div className="container row">
-            <SideBar></SideBar>
-            <div className=" mt-5" style={{ height: '80vh', width: '80%',background: 'white' }} >
-            <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
-                    <h1 className=''>Add House</h1>
-                    <h5 className="mr-5 mt-1">{loggedInUser.name}</h5>
+        <section>
+            <div style={containerStyle} className="container-fluid row">
+                <div className="col-md-2">
+                    <SideBar></SideBar>
+                </div>
+
+                <div className='col-md-10'>
+                    <h5 className="text-brand ml-5 pl-4 mt-4 mb-3">Add Services</h5>
+
+                    <div className="col-md-10 py-5 ml-5" style={formContainer}>
+                        <form onSubmit={handleSubmit} className="whiteBoard"> 
+                            <div className="pt-4 pl-4">
+                                <div className="form-group row">
+                                    <div className="col-md-6">
+                                        <label htmlFor="">Service Title</label>
+                                        <input onBlur={handleBlur} type="text" className="form-control" name="title" placeholder="Enter Title" required/>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label htmlFor="">Price</label>
+                                        <input onBlur={handleBlur} type="text" className="form-control" name="price" placeholder="Enter Price" required/>
+                                    </div>
+                                    
+                                </div>
+                                <div className="form-group row">
+                                    <div className="col-md-6">
+                                        <label htmlFor="">Location</label>
+                                        <input onBlur={handleBlur} type="text" className="form-control" name="location" placeholder="Enter Location" required/>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label htmlFor="">No of Bedroom</label>
+                                        <input onBlur={handleBlur} type="text" className="form-control" name="bedRoom" placeholder="No of Bedroom" required/>
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <div className="col-md-6">
+                                        <label htmlFor="">No of Bathroom</label>
+                                        <input onBlur={handleBlur} type="text" className="form-control" name="bathRoom" placeholder="No of Bathroom" required/>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label htmlFor="">Thumbnail</label>
+                                        <input hidden onChange={handleFileChange} type="file" className="form-control" name="file" id="imageUpload" placeholder="Picture" required/>
+                                        <label className='form-control imageLabel text-center' for="imageUpload">
+                                            <FontAwesomeIcon icon={faUpload} /> 
+                                            <span className='pl-2'> Upload Image </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                            <div>
+                                <button 
+                                    style={{width: '108px', height: '38px'}} 
+                                    type="submit" 
+                                    className="btn brand-btn text-white float-right"
+                                    > 
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
-            <Form className='form mt-4'>
-                   
-                    <div className='form-group row'>
-                       
-                    <div className= 'ml-2'>
-                        <div className=''>
-                            <Form.Group controlId="">
-                            <Form.Label  className="d-flex justify-content-start ml-1 font-weight-bold">Service Title</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Title" /> 
-                            </Form.Group>
-                        </div>
-                        <div className=''>
-                            <Form.Group controlId="">
-                            <Form.Label  className="d-flex justify-content-start ml-1 font-weight-bold">Location</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Title" /> 
-                            </Form.Group>
-                        </div>
-                        <div className=''>
-                            <Form.Group controlId="">
-                            <Form.Label  className="d-flex justify-content-start ml-1 font-weight-bold">No. of Bathroom</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Title" /> 
-                            </Form.Group>
-                        </div>
-                    </div>
-                    
-                    <div className='ml-4'>
-                    <div className=''>
-                            <Form.Group controlId="">
-                            <Form.Label  className="d-flex justify-content-start ml-1 font-weight-bold">Price</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Title" /> 
-                            </Form.Group>
-                        </div>
-                        <div className=''>
-                            <Form.Group controlId="">
-                            <Form.Label  className="d-flex justify-content-start ml-1 font-weight-bold">No. of Bedroom</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Title" /> 
-                            </Form.Group>
-                        </div>
-                        <div className=''>
-                            <Form.Group controlId="">
-                            <Form.Label  className="d-flex justify-content-start ml-1 font-weight-bold">Image </Form.Label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile3"></input>
-                            </Form.Group>
-                        </div>
-                    <Button
-                     className="d-flex justify-content-start" variant="primary" type="submit">
-                        Send
-                    </Button>
-                    </div>
-                    </div>
-                </Form>
-        </div>
-        </div>
+        </section>
     );
 };
 
