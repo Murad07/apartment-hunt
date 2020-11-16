@@ -15,11 +15,16 @@ import BookingList from './components/DashBoard/BookingList/BookingList';
 import AddHouse from './components/DashBoard/AddHouse/AddHouse';
 
 import HouseDetails from './components/HouseDetails/HouseDetails';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { createContext, useState } from 'react';
 
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser,setLoggedInUser] = useState({});
+
   return (
-    <div className="App">
+    <UserContext.Provider value={{loggedInUser,setLoggedInUser}} className="App">
       <Router>
         <Navbar></Navbar>
         <Switch>
@@ -36,16 +41,16 @@ function App() {
           <Route path="/login"> 
             <Login></Login>
           </Route>
-          <Route path="/bookingList">
+          <PrivateRoute path="/bookingList">
             <BookingList></BookingList>
-          </Route>
-          <Route path="/addHouse">
+          </PrivateRoute>
+          <PrivateRoute path="/addHouse">
             <AddHouse></AddHouse>
-          </Route>
+          </PrivateRoute>
 
-          <Route path='/rent'>
+          <PrivateRoute path='/rent'>
             <MyRent></MyRent>
-          </Route>
+          </PrivateRoute>
           <Route path="/details/:id">
             <HouseDetails></HouseDetails>
           </Route>
@@ -55,7 +60,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </UserContext.Provider>
   );
 }
 

@@ -11,8 +11,6 @@ const Sidebar = () => {
         <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{height:"100vh"}}>
         <ul className="list-unstyled mt-3">
             <Link to="/home"><img src={logo} alt="..." class="img-thumbnail mb-4"></img></Link>
-        
-       
              
         <div>
             <li>

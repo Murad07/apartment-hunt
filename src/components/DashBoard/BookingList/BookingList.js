@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import SideBar from '../SideBar/SideBar';
+import './Bookinglist.css'
 const options = [
     { value: 'Pending', label: 'Pending' },
     { value: 'On Going', label: 'On Going' },

@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css';
 import google from '../../Icon/google.png';
 import fb from '../../Icon/fb.png';
 import { googleSignIn, facebookSignIn, initalizeFirebase,createUserWithEmailAndPassword, signInWithEmailAndPassword } from './loginManager';
+import { useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const Login = () => {
     //Initalize Firebase
     initalizeFirebase();
+
+    //History and Location
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
     
     //User HaveAcoount or NewUser State
     const [haveAccount, setHaveAccount] = useState(true);
+
+    //Use Context
+    const {setLoggedInUser} = useContext(UserContext);
 
     //User State
     const [user,setUser] = useState({
@@ -101,12 +111,17 @@ const Login = () => {
         setUser(newUserIfno)
         }
     }
-
+    //Common Function
+    const commonFunction = res =>{
+        setUser(res);
+        sessionStorage.setItem("signIn", JSON.stringify(res));
+        history.replace(from);
+    }
     //Google Sign In
     const handleGoogleSignIn = ()=>{
        googleSignIn()
        .then( res =>{
-           setUser(res)
+        commonFunction(res);
        })
     }
 
@@ -114,7 +129,7 @@ const Login = () => {
     const handleFbSignIn = ()=>{
         facebookSignIn()
         .then( res => {
-            setUser(res)
+            commonFunction(res);
         })
     }
 
@@ -125,8 +140,9 @@ const Login = () => {
         if(!haveAccount && user.email && user.password ){
             createUserWithEmailAndPassword(user.email,user.password,user.firstName,user.lastName)
             .then(res =>{
-                console.log('Create account done');
-                setUser(res)
+                alert('Create account done');
+                setHaveAccount(!haveAccount);
+                setUser(res);
             })
           };
 
@@ -134,8 +150,7 @@ const Login = () => {
           if(haveAccount && user.email && user.password){
             signInWithEmailAndPassword(user.email,user.password)
             .then(res=>{
-                alert('SigIn Done')
-                setUser(res)
+                commonFunction(res);
             })
           }
           e.preventDefault();
