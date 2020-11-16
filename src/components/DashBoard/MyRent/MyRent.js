@@ -8,7 +8,7 @@ const MyRent = () => {
     return (
         <div className="container row">
             <SideBar></SideBar>
-            <div className=" mt-5" style={{ height: '80vh', width: '80%',background: 'white' }} >
+            <div className=" mt-5 pl-4" style={{ height: '80vh', width: '80%',background: 'white' }} >
             <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
                     <h1>My Rent</h1>
                     <h5 className="mr-5 mt-1">Sufi Ahmed</h5>
