@@ -8,9 +8,13 @@ import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
 import Home from './components/Home/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+
 import MyRent from './components/DashBoard/MyRent/MyRent';
 import BookingList from './components/DashBoard/BookingList/BookingList';
 import AddHouse from './components/DashBoard/AddHouse/AddHouse';
+
+import HouseDetails from './components/HouseDetails/HouseDetails';
+
 
 function App() {
   return (
@@ -36,6 +40,8 @@ function App() {
 
           <Route path='/rent'>
             <MyRent></MyRent>
+          <Route path="/details/:id">
+            <HouseDetails></HouseDetails>
           </Route>
           
           <Route path='*'>

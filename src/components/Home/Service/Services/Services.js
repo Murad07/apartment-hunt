@@ -1,23 +1,27 @@
 import React from 'react';
 import Service from '../Service/Service';
+import service1 from '../../../../logos/service1.png';
+import service2 from '../../../../logos/service2.png';
+import service3 from '../../../../logos/service3.png';
 
 
 const infos = [
         {
             title: "Wide Range of Properties",
             desc: "With a rebust selection of popular properties on hands, as well as landing, properties from expart",
-            img: "",
+            img: service1,
             fake: true,
         },
         {
             title: "Financing Made Easy",
-            desc: "",
-            img: "",
+            desc: "Our strees-free finance department that can find financial solutions to save your money",
+            img: service2,
             fake: true,
         },
         {
             title: "Trusted By Thousend",
-            img: "",
+            desc: "10 new offers everyday. 350 offers on site, trusted by a comunity of thousands of users.",
+            img: service3,
             fake: true,
         },
     ];
