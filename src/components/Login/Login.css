@@ -1,0 +1,74 @@
+.form-area{
+    max-width: 570px;
+    margin: 80px auto;
+    padding: 10px 40px;
+    border: 1px solid #ABABAB;
+    border-radius: 4px;
+}
+.form-area input{
+    border: none;
+    margin-bottom: 25px;
+    border-bottom: 1px solid lightgray;
+}
+.form-area .form-control:focus{
+    box-shadow: none;
+    border-color: #275A53;
+}
+
+.login-btn:focus{
+    background: #275A53;
+    color: white;
+}
+.account-have span{
+    color: #275A53;
+    cursor: pointer;
+    font-weight: 700;
+}
+.or-area p{
+    text-align: center;
+    position: relative;
+}
+.or-area p::after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    background: gray;
+    left: 39%;
+    top: 55%;
+}
+.or-area p::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    background: gray;
+    right: 39%;
+    top: 55%;
+}
+.social{
+    width: 261px;
+    height: 51px;
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 25px;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: .5s;
+}
+.social:hover{
+    color: white;
+    background: #275A53;
+}
+.social:active{
+    background:  #275A53;
+}
+.social span{
+    margin-left: 25px;
+}
+.social img{
+    width: 31px;
+    height: 31px;
+}

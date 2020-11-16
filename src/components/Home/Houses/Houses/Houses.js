@@ -74,8 +74,8 @@ const Houses = () => {
 
     return (
         <div className="container mt-3">
-            <h5 className="brand-color">House Rent</h5>
-            <h3 className="brand-color">Discover the latest Rent available today</h3>
+            <h5 className="brand-color text-center">House Rent</h5>
+            <h3 className="brand-color text-center">Discover the latest Rent available today</h3>
 
             <div className='row mx-3'>
                 {
