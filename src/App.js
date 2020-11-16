@@ -35,6 +35,7 @@ function App() {
 
           <Route path="/login"> 
             <Login></Login>
+          </Route>
           <Route path="/bookingList">
             <BookingList></BookingList>
           </Route>
