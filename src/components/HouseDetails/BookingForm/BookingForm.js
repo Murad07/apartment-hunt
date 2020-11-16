@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const BookingForm = () => {
+const BookingForm = ({details}) => {
 
     const [info, setInfo] = useState({});
 
@@ -15,24 +15,23 @@ const BookingForm = () => {
         
         formData.append('name', info.name);
         formData.append('phone', info.phone);
-        formData.append('email', info.email);
+        formData.append('customerEmail', info.email);
+        formData.append('ownerEmail', details.email);
         formData.append('message', info.message);
         formData.append('status', 'Pending');
+        formData.append('houseName', details.title);
+        formData.append('price', details.price);
 
-        // get the value from landing page card info
-        // formData.append('houseName', houseInfo.name);
-        // formData.append('price', houseInfo.price);
-
-        // fetch('https://hidden-headland-70388.herokuapp.com/addOrder', {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     if (data) {
-        //         history.push(`/serviceList/${serviceName}`);
-        //     }
-        // })
+        fetch('http://localhost:5000/bookingRequest', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                // history.push(`/bookingList/${bookingId}`);
+            }
+        })
     }
 
     return (
