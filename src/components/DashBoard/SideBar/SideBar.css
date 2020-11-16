@@ -1,11 +1,20 @@
 
-.sidebar li{
-    margin-bottom: 2em;
-}
-.sidebar li:hover span{
+.sidebar-container {
+    width: 20%;
+    padding: auto 8%;
+    margin: 0;
+  }
+  
+  .sidebar-container a {
+    margin: 10px 8%;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+  }
+  
+  .sidebar-container a:hover,
+  .sidebar-container a:active {
     color: #009444;
     text-decoration: none;
-}
-.sidebar svg{
-    margin-right: 5px;
-}
+  }
