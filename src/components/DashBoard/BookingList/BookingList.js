@@ -13,11 +13,11 @@ const BookingList = () => {
         <div className="container row">
             <SideBar></SideBar>
             <div className=" mt-5" style={{ height: '100vh', width: '80%',background: 'white' }} >
-            <div  className='pt-3 ml-5 mt-3 d-flex justify-content-between'>
+            <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
                     <h1>Booking List</h1>
                     <h5 className="mr-5 mt-1">Sufi Ahmed</h5>
             </div>
-            <Table>
+            <Table className='mt-4'>
                 <thead class="tHead mr-2 ml-2 rounded">
                     <tr>
                         <th>Name</th>
