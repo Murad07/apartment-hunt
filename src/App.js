@@ -18,6 +18,8 @@ import HouseDetails from './components/HouseDetails/HouseDetails';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { createContext, useState } from 'react';
 import Contact from './components/Contact/Contact';
+import Concerns from './components/Concerns/Concerns';
+import Events from './components/Events/Events';
 
 export const UserContext = createContext();
 
@@ -56,6 +58,14 @@ function App() {
           </PrivateRoute>
           <Route path="/details/:id">
             <HouseDetails></HouseDetails>
+          </Route>
+
+          <Route path="/concerns">
+            <Concerns></Concerns>
+          </Route>
+
+          <Route path="/event">
+            <Events></Events>
           </Route>
           
           <Route path='*'>
