@@ -2,7 +2,7 @@ import React from 'react';
 import mapIcon from '../../../../logos/map2.png';
 import badIcon from '../../../../logos/badIcon.png';
 import bathIcon from '../../../../logos/bathIcon.png';
-import './House.css';
+import './House.scss';
 import { Link } from 'react-router-dom';
 
 const House = ({info}) => {

@@ -2,13 +2,14 @@
 .App{
   text-align: center;
 } */
+@import './sass/Variables.scss';
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 .brand-btn {
-  background-color: #275a53;
+  background-color: $brandColor;
   color: white;
 }
 .brand-color {

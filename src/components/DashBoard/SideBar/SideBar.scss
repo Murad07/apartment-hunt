@@ -1,0 +1,21 @@
+.sidebar-container {
+  width: 20%;
+  padding: auto 8%;
+  margin: 0;
+
+  & a {
+    margin: 10px 8%;
+    display: inline-block;
+    text-decoration: none;
+    color: gray;
+    font-weight: 500;
+  }
+  
+  & a:hover,
+  & a:active {
+    color: #009444;
+    text-decoration: none;
+  }
+}
+
+

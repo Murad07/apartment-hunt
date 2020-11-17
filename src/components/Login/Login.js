@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import './Login.css';
+import './Login.scss';
 import google from '../../Icon/google.png';
 import fb from '../../Icon/fb.png';
 import { googleSignIn, facebookSignIn, initalizeFirebase,createUserWithEmailAndPassword, signInWithEmailAndPassword } from './loginManager';
