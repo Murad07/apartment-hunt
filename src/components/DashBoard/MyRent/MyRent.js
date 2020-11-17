@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
 import SideBar from '../SideBar/SideBar';
 import './MyRent.scss';
 import SingleRent from './SingleRent';
@@ -7,10 +8,12 @@ import SingleRent from './SingleRent';
 const MyRent = () => {
     const [orders, setOrders] = useState([])
 
-      //Loading State
-      const [loading,setLoading] = useState(true);
+     //Loading State
+    const [loading,setLoading] = useState(true);
 
-    const userEmail = "silverboymurad@gmail.com";
+    const {loggedInUser} = useContext(UserContext);
+    const userEmail =  loggedInUser.email ; //"silverboymurad@gmail.com";
+    
 
     useEffect(() => {
         fetch('https://protected-escarpment-17735.herokuapp.com/myRent/' + userEmail)
@@ -28,6 +31,7 @@ const MyRent = () => {
             <div className=" mt-5" style={{ height: '80vh', width: '80%',background: 'white' }} >
                 <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
                         <h1>My Rent</h1>
+                        <h3>{loggedInUser.name}</h3>
                 </div>
                 <div className="tableBg p-3">
                     <div className="row headding text-center mx-1">
