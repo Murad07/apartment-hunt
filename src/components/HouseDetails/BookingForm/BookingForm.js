@@ -21,8 +21,9 @@ const BookingForm = ({details}) => {
         formData.append('status', 'Pending');
         formData.append('houseName', details.title);
         formData.append('price', details.price);
+        formData.append('houseId', details._id);
 
-        fetch('http://localhost:5000/bookingRequest', {
+        fetch('https://protected-escarpment-17735.herokuapp.com/bookingRequest', {
             method: 'POST',
             body: formData
         })
@@ -35,7 +36,7 @@ const BookingForm = ({details}) => {
     }
 
     return (
-        <div style={{ backgroundColor: "#f1f5f4"}} className="col-md-10 py-3 ml-2 formContainer">
+        <div style={{ backgroundColor: "#f1f5f4"}} className="col-md-10 py-3 ml-md-3 formContainer">
                 
             <form onSubmit={handleSubmit} className=""> 
                 <div className="form-group">

@@ -10,7 +10,7 @@ const BookingList = () => {
     const userEmail = "silverboymurad@gmail.com";
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookingList/' + userEmail)
+        fetch('https://protected-escarpment-17735.herokuapp.com/bookingList/' + userEmail)
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }, []);
@@ -18,7 +18,7 @@ const BookingList = () => {
 
     return (
         <div className="container row">
-            <Sidebar></Sidebar>
+            <Sidebar pag={"bookingList"}></Sidebar>
             <div className="mt-5" style={{ height: '100vh', width: '80%', backgroundColor: '#f4fdfb' }} >
                 
                 <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>

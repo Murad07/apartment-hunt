@@ -38,7 +38,7 @@ const AddHouse = () => {
         formData.append('bathRoom', info.bathRoom);
         formData.append('email', "silverboymurad@gmail.com");
 
-        fetch('http://localhost:5000/addHouse', {
+        fetch('https://protected-escarpment-17735.herokuapp.com/addHouse', {
             method: 'POST',
             body: formData
         })
@@ -59,11 +59,9 @@ const AddHouse = () => {
     return (
         <section>
             <div style={containerStyle} className="container-fluid row">
-                <div className="col-md-2">
-                    <SideBar></SideBar>
-                </div>
+                <SideBar pag={"addHouse"}></SideBar>
 
-                <div className='col-md-10'>
+                <div className='col-md-8'>
                     <h5 className="text-brand ml-5 pl-4 mt-4 mb-3">Add Services</h5>
 
                     <div className="col-md-10 py-5 ml-5" style={formContainer}>
