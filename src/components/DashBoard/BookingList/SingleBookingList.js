@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import './Booking.css';
+import './Booking.scss';
 
 const SingleBookingList = ({order}) => {
    const [status, setStatus] = useState(order.status);

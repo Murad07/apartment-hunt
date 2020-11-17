@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import SideBar from '../SideBar/SideBar';
-import './AddHouse.css';
+import './AddHouse.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 

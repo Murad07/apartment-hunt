@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from '../SideBar/SideBar';
-import './MyRent.css';
+import './MyRent.scss';
 import SingleRent from './SingleRent';
 
 
