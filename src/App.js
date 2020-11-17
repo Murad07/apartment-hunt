@@ -26,7 +26,7 @@ function App() {
   return (
     <UserContext.Provider value={{loggedInUser,setLoggedInUser}} className="App">
       <Router>
-        <Navbar></Navbar>
+        
         <Switch>
           <Route exact path="/">
             <Home></Home>

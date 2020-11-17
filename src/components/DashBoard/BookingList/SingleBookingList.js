@@ -28,7 +28,7 @@ const SingleBookingList = ({order}) => {
         const formData = new FormData();
         formData.append('status', newStatus);
          
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://protected-escarpment-17735.herokuapp.com/updateStatus/${id}`, {
           method: 'PATCH',
           body: formData,
         })
