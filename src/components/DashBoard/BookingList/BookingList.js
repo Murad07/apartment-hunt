@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { UserContext } from '../../../App';
 import Sidebar from '../SideBar/SideBar';
 import SingleBookingList from './SingleBookingList';
 
@@ -8,7 +9,8 @@ const BookingList = () => {
     const [orders, setOrders] = useState([])
     const [loading,setLoading] = useState(true);
 
-    const userEmail = "silverboymurad@gmail.com";
+    const {loggedInUser} = useContext(UserContext);
+    const userEmail =  loggedInUser.email ;
 
     useEffect(() => {
         fetch('https://protected-escarpment-17735.herokuapp.com/bookingList/' + userEmail)
@@ -27,7 +29,7 @@ const BookingList = () => {
                 
                 <div  className='pt-2 ml-5 mt-2 d-flex justify-content-between'>
                         <h1>Booking List</h1>
-                        {/* <h5 className="mr-5 mt-1">Sufi Ahmed</h5> */}
+                        <h3>{loggedInUser.name}</h3>
                 </div>
             
                 <div className="tableBg p-3">

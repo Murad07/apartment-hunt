@@ -20,6 +20,7 @@ import { createContext, useState } from 'react';
 import Contact from './components/Contact/Contact';
 import Concerns from './components/Concerns/Concerns';
 import Events from './components/Events/Events';
+import Service from './components/Service/Service';
 
 export const UserContext = createContext();
 
@@ -56,9 +57,9 @@ function App() {
           <PrivateRoute path='/rent'>
             <MyRent></MyRent>
           </PrivateRoute>
-          <Route path="/details/:id">
+          <PrivateRoute path="/details/:id">
             <HouseDetails></HouseDetails>
-          </Route>
+          </PrivateRoute>
 
           <Route path="/concerns">
             <Concerns></Concerns>
@@ -66,6 +67,10 @@ function App() {
 
           <Route path="/event">
             <Events></Events>
+          </Route>
+
+          <Route path="/service">
+            <Service></Service>
           </Route>
           
           <Route path='*'>

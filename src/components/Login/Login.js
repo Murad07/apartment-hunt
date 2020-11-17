@@ -5,6 +5,7 @@ import fb from '../../Icon/fb.png';
 import { googleSignIn, facebookSignIn, initalizeFirebase,createUserWithEmailAndPassword, signInWithEmailAndPassword } from './loginManager';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
+import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
     //Initalize Firebase
@@ -160,6 +161,7 @@ const Login = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
           <div className="container"> 
             <form className="form-area" onSubmit={onSubmit}>
                 <h3 className="text-left mb-5 pt-4">{ haveAccount ? "Login" : "Create an account"}</h3>

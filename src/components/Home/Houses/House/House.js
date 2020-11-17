@@ -9,7 +9,7 @@ const House = ({info}) => {
     return (
         <div className="col-md-4 col-sm-6 text-center px-0 p-md-3">
             
-            <Link className='cardLink' to={`/details/${info._id}`}>
+            
                 <div className="card-group text-left">
                     <div className="card">
                         {
@@ -27,12 +27,16 @@ const House = ({info}) => {
                             </div>
                             <div className="row pt-0 mt-0">
                                 <div className="col-6"><h1 className="brand-color">${info.price}</h1></div>
-                                <div className="col-6 pt-2"><button className="btn brand-btn">View Details</button></div>
+                                <div className="col-6 pt-2">
+                                    <Link className='cardLink' to={`/details/${info._id}`}>
+                                        <button className="btn brand-btn">View Details</button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>    
                 </div>
-            </Link>
+            
         </div>
     );
 };

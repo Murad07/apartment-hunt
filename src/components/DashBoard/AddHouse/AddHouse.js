@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import SideBar from '../SideBar/SideBar';
 import './AddHouse.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { UserContext } from '../../../App';
 
 
 const containerStyle = {
@@ -20,6 +21,9 @@ const AddHouse = () => {
 
     const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
+
+    const {loggedInUser} = useContext(UserContext);
+    const userEmail =  loggedInUser.email ;
     
     const handleBlur = e => {
         const newInfo = { ...info };
@@ -36,7 +40,7 @@ const AddHouse = () => {
         formData.append('location', info.location);
         formData.append('bedRoom', info.bedRoom);
         formData.append('bathRoom', info.bathRoom);
-        formData.append('email', "silverboymurad@gmail.com");
+        formData.append('email', userEmail);
 
         fetch('https://protected-escarpment-17735.herokuapp.com/addHouse', {
             method: 'POST',
@@ -62,7 +66,7 @@ const AddHouse = () => {
                 <SideBar pag={"addHouse"}></SideBar>
 
                 <div className='col-md-8'>
-                    <h5 className="text-brand ml-5 pl-4 mt-4 mb-3">Add Services</h5>
+                    <h5 className="text-brand ml-5 pl-4 mt-4 mb-3">Add House</h5>
 
                     <div className="col-md-10 py-5 ml-5" style={formContainer}>
                         <form onSubmit={handleSubmit} className="whiteBoard"> 
