@@ -6,13 +6,17 @@ import SingleBookingList from './SingleBookingList';
 
 const BookingList = () => {
     const [orders, setOrders] = useState([])
+    const [loading,setLoading] = useState(true);
 
     const userEmail = "silverboymurad@gmail.com";
 
     useEffect(() => {
         fetch('https://protected-escarpment-17735.herokuapp.com/bookingList/' + userEmail)
         .then((res) => res.json())
-        .then((data) => setOrders(data));
+        .then((data) => {
+            setLoading(false)
+            setOrders(data)
+        });
     }, []);
    
 
@@ -35,9 +39,9 @@ const BookingList = () => {
                         <div className="col-md-2 my-auto">Status</div>
                     </div>
                     {
-                        orders.map((order, i) => (
-                            <SingleBookingList key={i} order={order}></SingleBookingList>
-                        ))
+                        loading ? <div style={{margin: '50px auto'}}   class="spinner-border text-success d-flex  algin-items-center justify-content-center text-center" role="status">
+                        <span class="sr-only ">Loading...</span>
+                      </div>: orders.map((order, i) => (<SingleBookingList key={i} order={order}></SingleBookingList>))
                     }
                 </div>
             </div>

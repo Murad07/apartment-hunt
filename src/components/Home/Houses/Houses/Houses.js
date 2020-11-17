@@ -70,12 +70,19 @@ const infos = [
     ];
 
 const Houses = () => {
+    //House State
     const [houses, setHouses] = useState([]);
+
+    //Loading State
+    const [loading,setLoading] = useState(true);
 
     useEffect( () => {
         fetch('https://protected-escarpment-17735.herokuapp.com/houses')
         .then(res => res.json())
-        .then(data => setHouses(data))
+        .then(data => {
+            setLoading(false);
+            setHouses(data)
+        })
     }, []);
 
     return (
@@ -85,8 +92,10 @@ const Houses = () => {
 
             <div className='row mx-3'>
                 {
-                    // houses.length ? houses.map((info, i) => <House key={i} info={info}></House>) :
-                    // infos.map((info, i) => <House key={i} info={info}></House>)
+
+                   loading ? <div style={{margin: '50px auto'}}  class="spinner-border text-success " role="status">
+                   <span class="sr-only ">Loading...</span>
+                 </div>:
                     houses.map((info, i) => <House key={i} info={info}></House>)
                 }
             </div>

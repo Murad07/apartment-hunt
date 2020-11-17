@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import logo from '../../logos/logo.png'
 
 const Navbar = () => {
-    let user = sessionStorage.getItem('signIn');
-    let loginUser = JSON.parse(user);
+        let user = sessionStorage.getItem('signIn');
+        let loginUser = JSON.parse(user);
+        const signOut = ()=>{
+            sessionStorage.clear();
+        }
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light mx-3">
@@ -35,9 +38,11 @@ const Navbar = () => {
                         <Link className="nav-link text-black" to="/contact">Contact</Link>
                     </li>
                     <li className="nav-item">
-
-                        {!loginUser && <Link className="text-white btn brand-btn" to="/bookingList">Login</Link>}
-                        {loginUser && <Link onClick={()=> sessionStorage.clear('signIn')} className="text-white btn brand-btn" to="/bookingList">Log Out</Link>}
+                        <Link className="nav-link text-black" to="/bookingList">DashBoard</Link>
+                    </li>
+                    <li className="nav-item">
+                        {!loginUser && <Link  className="text-white btn brand-btn" to="/bookingList">Login</Link>}
+                        {loginUser && <Link onClick={signOut} className="text-white btn brand-btn" to="/bookingList">Log Out</Link>}
                     </li>
                     </ul>
                 </div>
