@@ -17,6 +17,7 @@ import AddHouse from './components/DashBoard/AddHouse/AddHouse';
 import HouseDetails from './components/HouseDetails/HouseDetails';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { createContext, useState } from 'react';
+import Contact from './components/Contact/Contact';
 
 export const UserContext = createContext();
 
@@ -37,7 +38,9 @@ function App() {
           <Route path="/about">
             <About></About>
           </Route>
-
+          <Route path="/contact">
+            <Contact></Contact>
+          </Route>
           <Route path="/login"> 
             <Login></Login>
           </Route>
