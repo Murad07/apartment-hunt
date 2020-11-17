@@ -36,10 +36,10 @@ const Footer = () => {
                     <h5>About Us</h5>
                     <p>We are the top real estate agency in Sydney, with agents available to answers any questions 24/7</p>
                     <div>
-                        <img className="pr-3" height="20px" src={faceBook} alt=""/>
-                        <img className="pr-3" height="20px" src={insta} alt=""/>
-                        <img className="pr-3" height="20px" src={inIcon} alt=""/>
-                        <img height="20px" src={youIcon} alt=""/>
+                        <a href="https://www.facebook.com/raghib.ahsan.96" target="_blank"><img className="pr-3" height="20px" src={faceBook} alt=""/></a>
+                        <a href="https://www.instagram.com/murad.hossain.9615/" target="_blank"><img className="pr-3" height="20px" src={insta} alt=""/></a>
+                        <a href="https://www.linkedin.com/in/sr-sohan/" target="_blank"><img className="pr-3" height="20px" src={inIcon} alt=""/></a>
+                        <a href="https://www.youtube.com/user/jhankarmahbub" target="_blank"><img height="20px" src={youIcon} alt=""/></a>
                     </div>
                 </div>
             </div>

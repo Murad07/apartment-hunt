@@ -113,6 +113,7 @@ const Login = () => {
     }
     //Common Function
     const commonFunction = res =>{
+        setLoggedInUser(res);
         setUser(res);
         sessionStorage.setItem("signIn", JSON.stringify(res));
         history.replace(from);
