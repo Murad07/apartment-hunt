@@ -29,7 +29,7 @@ const infos = [
 const Services = () => {
    
     return (
-        <div className="container mt-3">
+        <div className="container mt-3" id="service">
             <h5 className="brand-color text-center">Services</h5>
             <h3 className="brand-color text-center">We're an agency tailored to all clients' need that always delivers</h3>
 
